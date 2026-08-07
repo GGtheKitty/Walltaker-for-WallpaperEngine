@@ -72,9 +72,15 @@ With the new e6 API feature, you can now check if you have favorited your curren
 
 # Settings
 
-### "walltaker.joi.how/links/"
+### "Walltaker link ID"
 
 This Option is required for the Wallpaper to work it defines the link from witch the Wallpaper gets the posts
+
+### "Walltaker server URL"
+
+The Walltaker instance the wallpaper connects to.
+
+Default: `https://walltaker.joi.how`
 
 ### "api_key"
 
@@ -85,11 +91,6 @@ needed for:
 
 - quick reactions
 - setter friend status
-
-### "interval (sec.)"
-
-This option Changes the frequency of checks for changes to the link (includes setter information and wallpaper)<br>
-unit: seconds
 
 ### "default video volume"
 
@@ -153,12 +154,12 @@ change where Set by is shown
 
 ### "Load setter data"
 
-Check this if you wan't to get more infos of the setter, like onlin status.<br>
+Check this if you wan't to get more infos of the setter, like online status.<br>
 Uncheck this if the wallpaper uses too much RAM or you have performance issues.
 
 ### "Setter Infos"
 
-Where to show adittional info about setter
+Where to show additional info about setter
 
 ### "Quick reactions"
 
