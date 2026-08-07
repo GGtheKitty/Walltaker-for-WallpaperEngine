@@ -25,7 +25,7 @@ const E6Api = new E6Api_(appInfo);
 const WalltakerApi = new WalltakerApi_(appInfo);
 
 function getWalltakerClientName() {
-  return `${appInfo.nameLong}/${appInfo.version}`;
+  return `${appInfo.name}/${appInfo.version}`;
 }
 
 function clearWalltakerReconnect() {
