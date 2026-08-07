@@ -546,10 +546,6 @@ function ProcessPropertyToSetting(
 
 function SetApiKey(apiKey) {
   settings.api_key = '' + apiKey?.trim();
-  if (!WalltakerApi_.IsAPIKeyValid(settings.apiKey)) {
-    settings.reactPos = areaNames.na;
-    settings.responsePos = areaNames.na;
-  }
   return true;
 }
 

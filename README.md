@@ -187,11 +187,11 @@ Tick the boxes whose presets you want to use.<br>
 If Custom Reactions is ticked you get 6 Textboxes in wich you can put whatever text you want.<br>
 Custom Reactions will show up as first entries of the dropdown .
 
-### "a6 username"
-Set your a6 username to enable additional features and personalization.<br>
+### "e6 username"
+Set your e6 username to enable additional features and personalization.<br>
 unit: string
 
-### "a6 api key"
+### "e6 api key"
 
-Provide your a6 API key to authenticate and access advanced features.<br>
+Provide your e6 API key to authenticate and access advanced features.<br>
 unit: string
