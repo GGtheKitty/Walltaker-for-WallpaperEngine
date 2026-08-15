@@ -83,7 +83,7 @@ function clearSetterInfo() {
   $('#SetterInfo').html('');
 }
 
-function watchSetterUser(username) {
+function watchSetterUser(username, force = false) {
   if (settings.showSetterData !== 'true') {
     clearSetterInfo();
     return;
@@ -101,6 +101,7 @@ function watchSetterUser(username) {
   };
 
   if (
+    !force &&
     appState.walltakerWatchedUser &&
     appState.walltakerWatchedUser.username === watchIntent.username &&
     appState.walltakerWatchedUser.api_key === watchIntent.api_key
@@ -912,7 +913,7 @@ function setNewPost(data) {
   setEvents();
   UpdateAppLinkState(data);
   ChangeSettings();
-  watchSetterUser(data.set_by);
+  watchSetterUser(data.set_by, true);
   e6_Update();
 }
 
@@ -956,7 +957,7 @@ function setbVideoEvents() {
   const videoElement = document.getElementById('bVid');
 
   videoElement.volume = 0;
-  updateOnEvent('#bVid', 'loaddata', function () {
+  updateOnEvent('#bVid', 'loadeddata', function () {
     console.log('video loaded data');
     SetVisible('#bVid');
     SetHidden('#bImg');
