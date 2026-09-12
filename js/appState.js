@@ -13,6 +13,8 @@ const appState = {
 	reloadColors: true,
 	reactPacks: [...settings.reactPacks],
 	bOpacity: settings.background_opacity,
+	videoVolume: null,
+	videoMuted: null,
 	linksCollapsed: true,
 	isLinksHeaderClicked: false,
 	init: false,

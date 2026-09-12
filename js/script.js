@@ -621,8 +621,18 @@ function SetVideoSettings(bVid) {
     return;
   }
 
+  if (appState.videoVolume === null) {
+    const configuredVolume = Number(settings.volume);
+    appState.videoVolume = Number.isFinite(configuredVolume)
+      ? Math.min(1, Math.max(0, configuredVolume))
+      : 1;
+    appState.videoMuted = appState.videoVolume === 0;
+  }
+
   bVid.controls = settings.videocontrols == 'full';
-  bVid.defaultMuted = settings.volume == 0;
+  bVid.volume = appState.videoVolume;
+  bVid.muted = appState.videoMuted;
+  bVid.defaultMuted = appState.videoMuted;
   bVid.autoplay = settings.autoplay == 'true';
   bVid.loop = settings.loop == 'true';
   bVid.load();
@@ -956,15 +966,17 @@ function setbImgEvents() {
 function setbVideoEvents() {
   const videoElement = document.getElementById('bVid');
 
-  videoElement.volume = 0;
   updateOnEvent('#bVid', 'loadeddata', function () {
     console.log('video loaded data');
     SetVisible('#bVid');
     SetHidden('#bImg');
-
-    videoElement.volume = settings.volume;
     //if(settings["autoplay"] == "true")
     //elVid.play();
+  });
+
+  updateOnEvent('#bVid', 'volumechange', function () {
+    appState.videoVolume = this.volume;
+    appState.videoMuted = this.muted;
   });
 
   updateClickEvent('#bVid', function () {
